@@ -1,8 +1,8 @@
 import express from "express";
-import getAllTruckLocations from "../controllers/truck-locations";
+import GetAllTruckLocations from "../controllers/truck-locations";
 
 const router = express.Router();
 
-router.get("/map", getAllTruckLocations);
+router.get("/map", GetAllTruckLocations);
 
 export default router;

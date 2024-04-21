@@ -1,6 +1,6 @@
-import db from "../db/config.js";
+import db from "../db";
 
-const getAllTruckLocations = async (req, res) => {
+const GetAllTruckLocations = async (req, res) => {
   try {
     const truckLocations = await db.query(
       "SELECT locations.*, drivers.firstname, drivers.lastname, drivers.email FROM locations INNER JOIN drivers ON locations.driver_id = drivers.driver_id"
@@ -12,4 +12,4 @@ const getAllTruckLocations = async (req, res) => {
   }
 };
 
-export default getAllTruckLocations;
+export default GetAllTruckLocations;
