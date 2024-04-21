@@ -1,7 +1,10 @@
 \c swiftswirl
 
+CREATE SEQUENCE driver_id_seq START 1;
+CREATE SEQUENCE location_id_seq START 1000;
+
 CREATE TABLE drivers (
-    driver_id  SERIAL PRIMARY KEY NOT NULL,
+    driver_id  SERIAL PRIMARY KEY DEFAULT nextval('driver_id_seq'),
     firstname VARCHAR(100) NOT NULL,
     lastname
      VARCHAR(100) NOT NULL,
@@ -9,7 +12,7 @@ CREATE TABLE drivers (
 );
 
 CREATE TABLE locations (
-    location_id SERIAL PRIMARY KEY,
+    location_id SERIAL PRIMARY KEY DEFAULT nextval('location_id_seq'),
     driver_id INT REFERENCES drivers(driver_id),
     latitude DECIMAL(9, 6) NOT NULL,
     longitude DECIMAL(9, 6) NOT NULL,
